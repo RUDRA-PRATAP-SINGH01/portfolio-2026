@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Moai Forest</title>
+    <meta name="theme-color" content="#070616" />
+    <meta name="color-scheme" content="only dark" />
+    <meta name="description" content="An interactive moonlit forest. Wander among glowing pink leaves, still water, and an ancient stone guardian." />
+    <link rel="icon" href="data:," />
+    <style>html, body { margin: 0; height: 100%; background: #070616; color-scheme: only dark; }</style>
+    <link rel="preload" href="/src/loading/fonts/pathway-extreme-text.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="/src/loading/loading.css" />
+    <script>
+      // This guard also works when the application bundle itself cannot load.
+      // Vite relocates the entry script and removes its id in production.
+      const showEntryError = () => {
+        const screen = document.getElementById('cinematic-loader')
+        if (!screen) { document.addEventListener('DOMContentLoaded', showEntryError, { once: true }); return }
+        screen.dataset.phase = 'error'
+        screen.querySelector('[data-load-caption]').textContent = 'The forest couldn’t finish loading.'
+        screen.querySelector('[data-load-message]').textContent = 'Check your connection, then try again.'
+        const retry = screen.querySelector('[data-load-retry]')
+        retry.hidden = false; retry.focus({ preventScroll: true })
+      }
+      window.addEventListener('error', event => {
+        if (event.target instanceof HTMLScriptElement && event.target.type === 'module') showEntryError()
+      }, true)
+      document.addEventListener('DOMContentLoaded', () => {
+        document.querySelector('[data-load-retry]').addEventListener('click', () => location.reload())
+      }, { once: true })
+    </script>
+  </head>
+  <body>
+    <!-- The loading screen (src/loading/loading.css): two dark panels that meet at a waterline. The count stands
+         above the line and is mirrored below it; LoadingScreen.jsx fills both in and parts the panels. -->
+    <section id="cinematic-loader" class="cinematic-loader" data-phase="loading" aria-label="Loading the forest">
+      <div class="loader-half loader-sky">
+        <div class="loader-count" data-load-count aria-hidden="true"><span data-lead>0</span><span data-lead>0</span><span>0</span></div>
+        <div class="loader-line" aria-hidden="true"><i></i></div>
+      </div>
+      <div class="loader-half loader-water">
+        <div class="loader-count" data-load-count aria-hidden="true"><span data-lead>0</span><span data-lead>0</span><span>0</span></div>
+        <div class="loader-line" aria-hidden="true"><i></i></div>
+        <div class="loader-foot">
+          <div class="loader-status" id="loader-status" role="status" aria-live="polite" aria-atomic="true">
+            <p class="loader-caption" data-load-caption>Shaping the landscape</p>
+            <p class="loader-message" data-load-message></p>
+          </div>
+          <button type="button" class="loader-retry" data-load-retry aria-describedby="loader-status" hidden>Try again</button>
+          <noscript><style>.loader-status { display: none; }</style><p class="loader-caption">Enable JavaScript to enter the forest.</p></noscript>
+        </div>
+      </div>
+      <div class="loader-meter" role="progressbar" aria-label="Loading the forest" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+    </section>
+    <div id="root"></div>
+    <script id="scene-entry" type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
