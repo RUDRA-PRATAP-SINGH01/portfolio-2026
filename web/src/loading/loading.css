@@ -1,0 +1,199 @@
+:root { color-scheme: dark; }
+/* Pathway Extreme (SIL Open Font License 1.1, fonts/OFL.txt), cut down to two small files by
+   scripts/build-loader-fonts.py: the ten figures for the count, and Basic Latin for the caption. */
+@font-face { font-family: 'Pathway Numerals'; src: url('./fonts/pathway-extreme-numerals.woff2') format('woff2'); font-display: block; }
+@font-face { font-family: 'Pathway Text'; src: url('./fonts/pathway-extreme-text.woff2') format('woff2'); font-display: block; }
+/* Should the figures' file ever fail: a system face shrunk to their width, so the count still fits a phone. */
+@font-face { font-family: 'Pathway Numerals Fallback'; src: local('Arial Narrow'), local('Arial'); size-adjust: 60%; }
+html, body, #root { margin: 0; width: 100%; height: 100%; overflow: hidden; background: #070616; }
+body { font-family: 'Pathway Text', 'Segoe UI', system-ui, sans-serif; }
+*, *::before, *::after { box-sizing: border-box; }
+[hidden] { display: none !important; }
+
+/* The world waits behind the loading screen, a little enlarged, and settles back as the screen opens. It is
+   switched on at once: the dark panels are what hide it, and fading it as well would only dim the first crack of
+   light. It fades only when the loading screen comes back over it (a change of quality). */
+.scene-shell { position: fixed; inset: 0; opacity: 0; transform: scale(1.04); pointer-events: none; transition: opacity .35s linear, transform 0s .35s; }
+.experience[data-phase="revealing"] .scene-shell, .experience[data-phase="ready"] .scene-shell { opacity: 1; transform: scale(1);
+  transition: opacity .1s linear, transform 3s cubic-bezier(.16, 1, .3, 1); }
+.experience[data-phase="ready"] .scene-shell { pointer-events: auto; }
+
+/* The scroll track (App.jsx) lies over the scene: a sticky stage the size of the window (the panel rides in it),
+   then ten screens of scrolling, whose position is the camera's place on the path. Locked until the scene is
+   ready. No scroll bar and no bounce past the ends: the camera's path has nothing beyond them. The track takes
+   the focus only so the keys scroll it, so a ring round the whole window would say nothing. */
+html, body { overscroll-behavior: none; }
+.scroll-track { position: fixed; inset: 0; overflow: hidden auto; overscroll-behavior: none; scrollbar-width: none; outline: none; }
+.scroll-track::-webkit-scrollbar { display: none; }
+.experience:not([data-phase="ready"]) .scroll-track { overflow: hidden; }
+.scroll-stage { position: sticky; top: 0; height: 100%; }
+.scroll-stage .hud { position: absolute; }
+/* 900vh for the 2400 frames of the path until 2026-11-16; its 2780 frames (blender/scripts/camera_scroll.py) keep the
+   same scroll per frame: the 380 more are the slow pass round the tiara behind the statue. */
+.scroll-spacer { height: 1042.5vh; }
+
+/* The name on the opening view (App.jsx). Its place and size are those of the headline on hatom.com's landing
+   page (.phase--1 .phase_content and .phase_content_title there, read from the live page on 2026-11-16):
+     the block      10.625vw from the left, centred on the window's height, 23.2639vw wide; hatom has a label
+                    above its headline and a button row below, and those two heights decide where the headline
+                    stands, so two empty spacers of the same heights stand in for them here
+     the headline   font size 2.91667vw (--size), line height 1, three lines, capitals, white
+     the phone      up to 600 px: 20 px from the left, 111 px from the top
+   and its other steps at 823, 864, 1296, 1440 and 2880 px.
+   The typeface is ours: Pathway Extreme Bold, fonts/pathway-extreme-name.woff2 (only the name's letters). That
+   file is built with the capital height and the line measures of hatom's face (scripts/build-loader-fonts.py,
+   NAME), so the same font size and line height put capitals of the same height on the same baselines. One thing
+   is left to this sheet: the stems of R and P start .0764 em inside their letters and the stems of hatom's B and
+   D .064 em, so the lines are moved left by the difference. */
+@font-face { font-family: 'Pathway Name'; src: url('./fonts/pathway-extreme-name.woff2') format('woff2'); font-weight: 700; font-display: block; }
+.name-block { --size: 2.91667vw; position: absolute; left: 10.625vw; top: 50%; width: 23.2639vw; transform: translateY(-50%);
+  pointer-events: none; user-select: none; opacity: 0; transition: opacity .6s ease; }
+.name-block::before, .name-block::after { content: ''; display: block; }
+.name-block::before { height: 1.31944vw; }
+.name-block::after { height: 3.88889vw; }
+.name { margin: 2.22222vw 0 1.80556vw; font: 700 var(--size)/1 'Pathway Name', 'Pathway Text', 'Segoe UI', sans-serif;
+  font-synthesis: none; text-transform: uppercase; color: #fff; -webkit-font-smoothing: antialiased; }
+.name span { display: block; position: relative; left: -.0124em; }
+/* Once the canvas draws the name in sliced glass (world/glassName.js), these letters only hold its place: they
+   stay in the page for screen readers and give the drawing its layout. */
+.name-block[data-glass] .name { color: transparent; }
+/* It belongs to the opening: shown once the scene is, gone while the camera is anywhere else on its path
+   (CameraRig.jsx sets main[data-opening]). */
+.experience[data-phase="ready"][data-opening] .name-block { opacity: 1; transition: opacity .9s ease .25s; }
+@media (max-width: 1440px) { .name-block::before { height: 19px; } }
+@media (max-width: 1296px) { .name-block::after { height: 50.4px; } }
+@media (max-width: 864px) { .name-block { width: 201px; } }
+@media (max-width: 823px) { .name-block { --size: 24px; } }
+@media (max-width: 600px) { .name-block { left: 20px; top: 111px; transform: none; } .name { margin: 16px 0 8px; } }
+@media (min-width: 2880px) { .name-block { --size: 84px; left: 306px; width: 670px; } .name-block::before { height: 38px; }
+  .name-block::after { height: 112px; } .name { margin: 64px 0 52px; } }
+
+/* The loading screen. Two dark panels meet at a waterline. The count stands in the water above the line and is
+   mirrored below it, and a hair of light crosses the line as the world loads. When the world is ready the panels
+   part along the line: a crack of light, a held breath, then the dark slides away above and below.
+   Everything that moves is a transform or an opacity on a few flat layers. There is no blur, no shadow and no
+   moving gradient: on an Intel graphics chip the blurs of the screen this replaced took 4 to 7 ms of every frame
+   it drew. The colours are the world's own: its night shadow, its moonlight and its lotus pink. */
+.cinematic-loader { --load-progress: 0; --ground: #070616; --lit: #ece7ff; --lead: #2b2757; --mirror: #3a3663; --mirror-lead: #161336;
+  --track: #25214c; --light: #f29cc9; --caption: #b9b2e2; --note: #8f88bd; --size: min(66vh, 92vw); --cut: 1.7s;
+  position: fixed; inset: 0; z-index: 100; color: var(--lit); font-synthesis: none; animation: loader-in .35s both; }
+@supports (height: 1svh) { .cinematic-loader { --size: min(66svh, 92vw); } }
+.cinematic-loader ::selection { background: var(--light); color: var(--ground); }
+
+/* The waterline lies at 55% of the height, where the stone's lit chin is in the view behind: the first crack
+   opens on the brightest band of the picture. Whole pixels keep the line sharp. */
+.loader-half { position: absolute; left: 0; right: 0; overflow: hidden; contain: layout paint; background: var(--ground); will-change: transform; }
+.loader-sky { top: 0; height: 55%; }
+.loader-water { top: 55%; bottom: 0; }
+@supports (height: round(55%, 1px)) { .loader-sky { height: round(55%, 1px); } .loader-water { top: round(55%, 1px); } }
+
+/* The count. A figure's baseline lies .108em above the foot of its 1em box (the face's own measure), so the box is
+   let down by that much and the figures stand exactly on the line: the 1 and the 2 keep their feet, and the round
+   ones lose only the hair by which they dip below the baseline. The mirrored row is the same box turned over about
+   the line. Nothing here changes colour gradually: a figure is repainted when it changes, and only then. */
+.loader-count { position: absolute; left: 0; right: 0; height: 1em; text-align: center; white-space: nowrap; user-select: none;
+  font: 400 var(--size)/1 'Pathway Numerals', 'Pathway Numerals Fallback', sans-serif; letter-spacing: .012em; }
+.loader-sky .loader-count { bottom: -.108em; }
+.loader-water .loader-count { top: -.108em; transform: scaleY(-1); color: var(--mirror); }
+.loader-count span[data-lead] { color: var(--lead); }
+.loader-water .loader-count span[data-lead] { color: var(--mirror-lead); }
+/* Still water, not a polished floor: the reflection is broken by a few dark bands that widen with depth, then
+   lost in the dark. One picture, painted once. */
+.loader-water::after { content: ''; position: absolute; inset: 0; pointer-events: none; --s: var(--size); background:
+  linear-gradient(to bottom, #0000 calc(var(--s) * .075), var(--ground) 0 calc(var(--s) * .081), #0000 0 calc(var(--s) * .150), var(--ground) 0 calc(var(--s) * .160),
+    #0000 0 calc(var(--s) * .235), var(--ground) 0 calc(var(--s) * .250), #0000 0 calc(var(--s) * .330), var(--ground) 0 calc(var(--s) * .352), #0000 0),
+  linear-gradient(to bottom, #07061600, var(--ground) 70%); }
+
+/* The line of light, one pixel on each panel, so each keeps a lit edge when they part. Its tip twinkles in a
+   few steps a second, which tells a slow connection from a stalled page without a frame drawn in between. */
+.loader-line { position: absolute; left: 0; right: 0; z-index: 2; height: 1px; background: var(--track); }
+.loader-sky .loader-line { bottom: 0; }
+.loader-water .loader-line { top: 0; }
+.loader-line i { position: absolute; inset: 0; background: var(--light); transform: scaleX(var(--load-progress)); transform-origin: 0 50%; will-change: transform; }
+.loader-line::after { content: ''; position: absolute; top: 0; left: 0; width: 56px; height: 1px; background: linear-gradient(to right, #f29cc900, #fff8fc);
+  transform: translateX(calc(var(--load-progress) * 100vw - 56px)); will-change: transform; animation: loader-twinkle 2.8s step-end infinite; }
+
+.loader-foot { position: absolute; left: 24px; right: 24px; bottom: calc(max(24px, 11%) + env(safe-area-inset-bottom, 0px)); z-index: 3;
+  display: grid; justify-items: center; text-align: center; }
+/* The words never lie over the reflection: a veil of the ground colour rises behind them, however tall the block
+   (a caption, the slow notice, the error with its button). */
+.loader-foot::before { content: ''; position: absolute; z-index: -1; left: -100vw; right: -100vw; top: -44px; bottom: -100vh;
+  background: linear-gradient(to bottom, #07061600, var(--ground) 44px); }
+.loader-status { display: grid; justify-items: center; gap: 6px; }
+.loader-caption, .loader-message { margin: 0; text-wrap: balance; }
+.loader-caption { font-size: 1.0625rem; line-height: 1.4; letter-spacing: .01em; color: var(--caption); }
+.loader-message { max-width: 44ch; font-size: .9375rem; line-height: 1.45; color: var(--note); }
+.loader-message:empty { display: none; }
+.loader-retry { min-height: 44px; margin-top: 14px; padding: 0 24px; font: inherit; font-size: 1rem; letter-spacing: .01em; color: var(--lit);
+  background: none; border: 1px solid #6f68a8; border-radius: 2px; cursor: pointer; transition: background-color .15s, border-color .15s; }
+.loader-retry:hover { background: #1b1840; border-color: var(--lit); }
+.loader-retry:active { background: var(--track); }
+.loader-retry:focus-visible { outline: 2px solid var(--light); outline-offset: 4px; }
+.loader-meter { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+
+/* The sharpness test (world/resolution.js) times the scene behind this screen for up to three seconds on a slow
+   chip. Nothing here may draw a frame of its own meanwhile: the twinkle holds, and LoadingScreen.jsx moves the
+   count only in whole numbers. */
+[data-sharpness-test] .loader-line::after { animation-play-state: paused; }
+
+/* The cut. */
+.cinematic-loader[data-phase="revealing"] .loader-sky { animation: loader-part-sky var(--cut) both; }
+.cinematic-loader[data-phase="revealing"] .loader-water { animation: loader-part-water var(--cut) both; }
+.cinematic-loader[data-phase="revealing"] .loader-foot { opacity: 0; transition: opacity .25s linear; }
+.cinematic-loader[data-phase="revealing"] .loader-line::after { animation: none; }
+
+.cinematic-loader[data-phase="error"] .loader-count span { color: var(--lead); }
+.cinematic-loader[data-phase="error"] .loader-water .loader-count span { color: var(--mirror-lead); }
+.cinematic-loader[data-phase="error"] .loader-line i { background: #7d5a86; }
+.cinematic-loader[data-phase="error"] .loader-line::after { display: none; }
+.cinematic-loader[data-phase="error"] .loader-caption { color: var(--lit); }
+
+.hud { position: fixed; left: 20px; bottom: 20px; z-index: 10; font: 12px/1.6 system-ui, sans-serif; color: #dbe4ef;
+  background: #040c18e0; padding: 12px 15px; border: 1px solid #8392ae26; border-radius: 8px; user-select: none;
+  opacity: 0; transform: translateY(12px); transition: opacity .8s ease, transform 1s cubic-bezier(.16, 1, .3, 1); }
+.experience[data-phase="ready"] .hud { opacity: 1; transform: none; }
+.hud b { font-size: 14px; font-weight: 500; letter-spacing: .04em; }.hud > br { display: none; }
+.hud .stats { margin: 6px 0 0; max-width: min(88vw, 560px); font: 11px/1.5 ui-monospace, Consolas, monospace; white-space: pre-wrap; user-select: text; }
+.performance { float: right; padding-left: 22px; opacity: .55; font-variant-numeric: tabular-nums; }
+.hud button, .hud select { font: inherit; margin: 8px 5px 4px 0; background: #142336; color: #e6f0ff; border: 1px solid #5a76934a; border-radius: 4px; padding: 4px 8px; cursor: pointer; }
+.hud select { clear: both; display: inline-block; }.hud .hint { opacity: .6; margin-top: 2px; }
+.hud button:focus-visible, .hud select:focus-visible { outline: 2px solid #d687bd; outline-offset: 2px; }
+
+@keyframes loader-in { from { opacity: 0; } }
+@keyframes loader-twinkle { 0%, 64% { opacity: 1; } 18% { opacity: .3; } 31% { opacity: .85; } 47% { opacity: .45; } 82% { opacity: .6; } }
+/* A crack of nine pixels each way, held while it eases out, then the long slide (each step's easing is its own). */
+@keyframes loader-part-sky { 0% { transform: none; animation-timing-function: cubic-bezier(.2, .7, .2, 1); }
+  24% { transform: translateY(-9px); animation-timing-function: cubic-bezier(.75, 0, .22, 1); } 100% { transform: translateY(-101%); } }
+@keyframes loader-part-water { 0% { transform: none; animation-timing-function: cubic-bezier(.2, .7, .2, 1); }
+  24% { transform: translateY(9px); animation-timing-function: cubic-bezier(.75, 0, .22, 1); } 100% { transform: translateY(101%); } }
+
+@media (max-width: 600px) { .hud { left: 12px; bottom: 12px; padding: 8px 12px; } }
+@media (max-height: 440px) { .loader-caption { font-size: .9375rem; } .loader-message { font-size: .875rem; } .loader-retry { margin-top: 8px; } }
+/* Reduced motion: the count and the line still tell the progress, but nothing slides. The screen dissolves. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; }
+  .scene-shell, .hud { transform: none !important; transition: opacity .15s linear !important; }
+  .name-block { transition: opacity .15s linear !important; }
+  .cinematic-loader { --cut: .15s; transition: opacity var(--cut) linear; }   /* LoadingScreen.jsx reads --cut */
+  .cinematic-loader[data-phase="revealing"] { opacity: 0; }
+}
+
+/* The ring that follows the mouse (ui/cursor.js), unseen.co's cursor on a dark page (their theme, read 2026-11-16):
+   2.2rem across at their root font size, clamp(14px, 1vw, 38px), so 35.2 px on a window 1600 px wide; a 1.5 px white
+   line, no fill, no blend mode. A child of the body: under the loading screen (z 100), over the panel (z 10).
+   The script moves the outer element (translate) and turns and stretches the ring (transform) every frame it runs;
+   both are layers of their own, so a frame of it is a compositor update. A press shrinks the ring to 0.8 in 0.2 s
+   (GSAP's default ease, power1.out; the scale property, so it is eased while the script writes the stretch); over an element marked
+   data-cursor="hide" the whole ring shrinks to nothing and fades in their 0.8 s expo.out, about its centre. */
+.cursor { position: fixed; left: 0; top: 0; z-index: 50; width: 0; height: 0; pointer-events: none; user-select: none;
+  will-change: transform; transition: opacity .8s cubic-bezier(.16, 1, .3, 1), scale .8s cubic-bezier(.16, 1, .3, 1); }
+.cursor[data-over-hide] { opacity: 0; scale: 0; }
+.cursor-ring { --d: calc(2.2 * clamp(14px, 1vw, 38px)); position: absolute; left: calc(var(--d) / -2); top: calc(var(--d) / -2);
+  width: var(--d); height: var(--d); border: 1.5px solid #fff; border-radius: 50%; will-change: transform;
+  transition: scale .2s cubic-bezier(.25, .46, .45, .94); }
+.cursor[data-pressed] .cursor-ring { scale: .8; }
+/* Reduced motion: the script keeps it on the pointer, unstretched; it fades out over a button instead of shrinking. */
+@media (prefers-reduced-motion: reduce) {
+  .cursor { transition: opacity .15s linear; }
+  .cursor[data-over-hide] { scale: 1; }
+}
