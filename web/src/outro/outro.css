@@ -1,0 +1,44 @@
+/* Pathway Extreme (SIL OFL 1.1, /fonts/OFL.txt); the bold's line measures make its bar 1.417 em tall, as alche's. */
+@font-face { font-family: 'Pathway Outro'; src: url('/fonts/pathway-extreme-outro-bold.woff2') format('woff2'); font-weight: 700; font-display: swap; }
+@font-face { font-family: 'Pathway Outro'; src: url('/fonts/pathway-extreme-outro-light.woff2') format('woff2'); font-weight: 200; font-display: swap; }
+
+.outro { position: relative; }
+.outro__frame { --outro-shift: 98.5; opacity: 0; pointer-events: none; font-family: 'Pathway Outro', 'Segoe UI', system-ui, sans-serif; }
+.outro__inner { position: relative; margin: 0 auto; }
+.outro__lines { margin: 0; color: #fff; font-weight: 700; line-height: 1.7em; letter-spacing: .08em; }
+.outro__line { opacity: 0; }
+.outro__marker { background: linear-gradient(#000 0 0) no-repeat; background-size: calc(var(--outro-mark, 0) * 100%) 100%; }
+.outro__small { margin: 0; color: #555; font-weight: 200; line-height: 1.3em; letter-spacing: .1em; }
+
+/* alche's moving mask edge as a fixed mask on a sliding frame, content slid back: no repaint a frame (-0.9 ms Intel). */
+@media (min-width: 769px) {
+  .outro__frame { position: fixed; left: 0; top: 0; width: 100%; height: 100dvh; overflow: hidden; mask-image: linear-gradient(transparent, #000 3dvh);
+    transform: translateY(calc(var(--outro-shift) * 1dvh)); will-change: transform; }
+  .outro__inner { width: 80%; height: 100%; padding-top: 17vh; transform: translateY(calc(var(--outro-shift) * -1dvh)); will-change: transform; }
+  .outro__lines { margin-top: calc(24vw * 99 / 437 + 95px); font-size: 4vmin; }     /* alche's invisible title keeps this room */
+  .outro__small { position: absolute; left: 0; top: 60vh; margin-top: 50px; font-size: 1.5vmin; opacity: var(--outro-small, 0); }
+}
+/* A phone scrolls the text in with the page, entering as the light screen finishes rising (as alche's). */
+@media (max-width: 768px) {
+  .outro__frame { padding-top: 120vh; }
+  .outro__inner { width: 90%; padding-top: 40px; }
+  .outro__lines { margin-top: calc(72vw * 99 / 437 + 90px); font-size: 6vmin; }
+  .outro__small { margin-top: 40px; font-size: 12px; }
+}
+@media (prefers-reduced-motion: reduce) { .outro__marker { background-size: 100% 100%; } }
+
+/* The rest of the page on the light (html[data-outro]: hold, wipe, covered). */
+html[data-outro] .name-block { visibility: hidden; }
+html[data-outro] .hud { transition: opacity .8s ease, visibility .8s, transform 1s cubic-bezier(.16, 1, .3, 1), color .5s ease, background-color .5s ease, border-color .5s ease; }
+html[data-outro] .hud button, html[data-outro] .hud select { transition: color .5s ease, background-color .5s ease, border-color .5s ease; }
+html[data-outro] .cursor-ring { transition: scale .2s cubic-bezier(.25, .46, .45, .94), border-color .5s ease; }
+html[data-outro="covered"], html[data-outro="covered"] body { color-scheme: light; }
+html[data-outro="covered"] .hud { color: #000; background-color: transparent; border-color: transparent; }
+html[data-outro="covered"] .hud button, html[data-outro="covered"] .hud select { color: #000; background-color: transparent; border-color: #0000004d; }
+html[data-outro="covered"] .cursor-ring { border-color: #000; }
+/* The ring turns dark wherever the light is under it (wipe.js sets data-outro-under), not only once it covers. */
+html[data-outro-under] .cursor-ring { border-color: #000; }
+/* As alche's end page: no frame rate nor scroll hint on the light, and on a phone (the copy scrolls through it) no panel. */
+html[data-outro] .performance, html[data-outro] .hud .hint { transition: opacity .5s ease; }
+html[data-outro="covered"] .performance, html[data-outro="covered"] .hud .hint { opacity: 0; }
+@media (max-width: 768px) { html[data-outro="covered"] .experience .hud { opacity: 0; visibility: hidden; pointer-events: none; } }
