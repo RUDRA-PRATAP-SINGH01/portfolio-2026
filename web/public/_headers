@@ -1,0 +1,10 @@
+# Netlify response headers (also applied when the built dist folder is dragged onto Netlify; vercel.json does the same on Vercel).
+# Every response: no content-type guessing, no full address sent to other sites, no camera/microphone/location.
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
+
+# Vite gives these files a content hash in their names, so they can be cached for good.
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
