@@ -1,0 +1,12 @@
+*.ktx2 binary
+*.glb binary
+*.bin binary
+*.gz binary
+*.png binary
+*.webp binary
+*.woff2 binary
+*.hdr binary
+*.rgba16f binary
+*.rgba8 binary
+*.f32 binary
+*.u16 binary
