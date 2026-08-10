@@ -1,0 +1,11 @@
+{
+  "size": 49,
+  "scale": 512.0,
+  "maximum": 64.0,
+  "shaper": 15.000044026886828,
+  "view": "AgX",
+  "look": "AgX - Punchy",
+  "exposure": 0.20000000298023224,
+  "display": "sRGB",
+  "file": "data/agx_punchy_lut.rgba16f"
+}
