@@ -1,0 +1,34 @@
+{
+ "lamps": {
+  "far": {
+   "tint": [
+    1,
+    1,
+    1
+   ],
+   "range": [
+    6,
+    16
+   ]
+  }
+ },
+ "glow": {
+  "canopyGain": 1.15,
+  "canopyFar": 0.9,
+  "canopyRange": [
+   7,
+   20
+  ],
+  "branchStrength": 4.5,
+  "lilyFar": {
+   "hue": 0,
+   "dim": 1,
+   "range": [
+    4,
+    14
+   ]
+  },
+  "farHue": 0.6,
+  "farDim": 0.8
+ }
+}
