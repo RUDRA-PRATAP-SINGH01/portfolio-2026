@@ -1,0 +1,392 @@
+{
+ "version": 1,
+ "about": "Every colour and light strength the browser decides, in one place (scene-linear RGB unless said otherwise). Lamp and moon colours themselves come from Blender through scene_meta.json. 'bake' and 'skyFill' are also read by blender/scripts/pack_cinematic.py, which mixes the baked light layers: after changing them run that script. In development ?palette=<name> lays data/palette_<name>.json over this file.",
+ "skyFill": {
+  "sky": [
+   0.08,
+   0.18,
+   0.4
+  ],
+  "ground": [
+   0.008,
+   0.012,
+   0.018
+  ],
+  "intensity": 0.75
+ },
+ "moon": {
+  "shadow": 0.88,
+  "grass": 2.6,
+  "farLeaves": 0.28,
+  "pondGlint": 0.35,
+  "gain": 1.5
+ },
+ "lamps": {
+  "gain": 1,
+  "fade": {
+   "tint": [
+    1,
+    1,
+    1
+   ],
+   "below": 0,
+   "above": 0
+  },
+  "knee": {
+   "terrain": 3.8,
+   "surface": 4,
+   "grass": 2.2
+  },
+  "minSaturation": 0.6,
+  "pondBody": 0.02,
+  "pondGlint": 0.012,
+  "glintCap": 1.6,
+  "airGain": 3e-05,
+  "airSoftness": 0.7,
+  "airSky": 1,
+  "far": {
+   "tint": [
+    0.55,
+    0.75,
+    1.7
+   ],
+   "range": [
+    3.5,
+    8
+   ]
+  }
+ },
+ "statue": {
+  "saturation": 0.9,
+  "foot": {
+   "height": 0.22,
+   "ragged": 0.09,
+   "fade": 0.05,
+   "wick": 0.35,
+   "wickDark": 0.35,
+   "soil": [
+    0.007,
+    0.009,
+    0.014
+   ],
+   "moss": [
+    0.006,
+    0.016,
+    0.02
+   ],
+   "mossShare": 0.5,
+   "skirt": {
+    "near": 1.9,
+    "contact": [
+     0.92,
+     0.62
+    ],
+    "ragged": 0.06,
+    "strength": 0.85,
+    "soil": [
+     0.008,
+     0.01,
+     0.016
+    ]
+   }
+  }
+ },
+ "mist": {
+  "density": 0.022,
+  "height": 0.8,
+  "reach": 80,
+  "strength": 0.22,
+  "clear": 14,
+  "tint": [
+   0.34,
+   0.4,
+   0.6
+  ],
+  "saturation": 1.6
+ },
+ "shafts": {
+  "colour": [
+   0.33,
+   0.63,
+   1.1
+  ],
+  "strength": 0.22
+ },
+ "glow": {
+  "branch": [
+   1,
+   0.12,
+   0.5
+  ],
+  "branchStrength": 2.5,
+  "flower": [
+   1,
+   0.1,
+   0.62
+  ],
+  "flowerAlt": [
+   0.86,
+   0.2,
+   1
+  ],
+  "flowerAltShare": 0.55,
+  "flowerCentre": 0.55,
+  "bulb": 8,
+  "stud": 5,
+  "periwinkle": 0.55,
+  "lily": [
+   1,
+   0.1,
+   0.45
+  ],
+  "lilyAdrift": [
+   1,
+   0.14,
+   0.5
+  ],
+  "grass": [
+   1,
+   0.12,
+   0.62
+  ],
+  "canopyGain": 0.6,
+  "canopyFar": 0.5,
+  "canopyRange": [
+   4,
+   12
+  ],
+  "farHue": 1,
+  "farDim": 0.6,
+  "farRange": [
+   4,
+   14
+  ],
+  "lilyFar": {
+   "hue": 1,
+   "dim": 0.75,
+   "range": [
+    3,
+    8
+   ]
+  },
+  "nearGain": 1.6,
+  "nearKeep": 0.34,
+  "farKeep": 0.42
+ },
+ "terrain": {
+  "soil": [
+   0.14,
+   0.27,
+   0.46
+  ],
+  "litter": [
+   0.17,
+   0.28,
+   0.56
+  ],
+  "moss": [
+   0.012,
+   0.03,
+   0.036
+  ],
+  "cool": [
+   0.84,
+   0.98,
+   1.16
+  ],
+  "warm": [
+   1.0,
+   1.0,
+   1.0
+  ],
+  "silt": [
+   0.004,
+   0.007,
+   0.009
+  ],
+  "contact": 0.9,
+  "mossTile": 0.45,
+  "mossDeep": [
+   0.007,
+   0.022,
+   0.042
+  ],
+  "mossTip": [
+   0.022,
+   0.064,
+   0.084
+  ],
+  "mossSheen": 1.3
+ },
+ "surfaces": {
+  "moss": [
+   0.03,
+   0.075,
+   0.055
+  ],
+  "hydrocharis": 1.3,
+  "padTint": [
+   0.7,
+   1,
+   1.3
+  ],
+  "padRed": 0,
+  "padSheen": 0.8,
+  "padContact": [
+   0,
+   0.003,
+   0.006
+  ],
+  "plantWarm": 0.05,
+  "petalLight": [
+   0.95,
+   0.65,
+   0.8
+  ],
+  "petalDeep": [
+   0.85,
+   0.08,
+   0.35
+  ]
+ },
+ "grass": {
+  "sky": [
+   0.06,
+   0.15,
+   0.42
+  ],
+  "ground": [
+   0.006,
+   0.012,
+   0.02
+  ],
+  "rim": [
+   0.12,
+   0.35,
+   0.95
+  ],
+  "translucent": [
+   0.18,
+   0.45,
+   0.7
+  ],
+  "tipGain": 1.6,
+  "variants": [
+   [
+    0.75,
+    0.95,
+    1.4
+   ],
+   [
+    0.95,
+    1,
+    1.1
+   ],
+   [
+    1.0,
+    1.08,
+    1.0
+   ],
+   [
+    0.55,
+    0.6,
+    0.65
+   ]
+  ],
+  "kinds": {
+   "mondo": 1,
+   "meadow": 0.95
+  },
+  "height": 1.3
+ },
+ "leaves": {
+  "farBase": [
+   0.018,
+   0.045,
+   0.105
+  ],
+  "through": 0.8,
+  "depth": 0.8,
+  "depthMean": 0.23,
+  "depthTint": [
+   0.7,
+   0.8,
+   1.3
+  ]
+ },
+ "pond": {
+  "shallow": [
+   0.007,
+   0.014,
+   0.013
+  ],
+  "deep": [
+   0.0016,
+   0.0048,
+   0.0095
+  ],
+  "mirror": 0.82
+ },
+ "stars": {
+  "about": "The sky's point stars (web/src/world/stars.js): fwhm, their width in pixels at half the peak; gain, a multiplier on their light; cap, the brightest a star's centre gets (under bloom's 1.1); widen, how much a brighter star grows instead; fwhmMax, the widest one.",
+  "gain": 1,
+  "fwhm": 1.35,
+  "cap": 0.9,
+  "widen": 0.5,
+  "fwhmMax": 3
+ },
+ "pbr": {
+  "about": "Environment PBR (2026-11-17). relief: light maps follow the normal maps by the light grid's direction (src/world/relief.js): strength x the grid's slope (the grid's 2.6 m cells smooth the lamps' direction away; at 1 the relief barely showed), floor = share of the strongest lobe under the facing light, clamped to min..max. wet: wet ground and rocks mirror the sky (src/world/wetSheen.js): strength (the sky picture holds none of the mist and glow the pond's own mirror shows; at 1 the sheen did not read), level = the sky picture's mip, flatten = share of the normal map's relief the water evens out, band = metres above the water rocks are wet to.",
+  "relief": {
+   "strength": 10,
+   "floor": 0.1,
+   "min": 0.5,
+   "max": 1.8
+  },
+  "wet": {
+   "strength": 3,
+   "level": 5,
+   "flatten": 0.6,
+   "band": 0.25
+  }
+ },
+ "bake": {
+  "about": "Read by blender/scripts/pack_cinematic.py when it mixes the baked light layers; changing these needs that script re-run, not a new bake.",
+  "pink": {
+   "gain": 1,
+   "tint": [
+    1,
+    1,
+    1
+   ]
+  },
+  "blue": {
+   "gain": 0.85,
+   "tint": [
+    1.2,
+    0.95,
+    1.0
+   ]
+  },
+  "moonBounce": 1.5,
+  "fade": {
+   "tint": [
+    0.75,
+    1.1,
+    2.1
+   ],
+   "below": 0.03,
+   "above": 0.5
+  },
+  "knee": {
+   "terrain": 3.8,
+   "surface": 4,
+   "head": 0
+  },
+  "minSaturation": 0.6,
+  "head": {
+   "pink": 1,
+   "blue": 1
+  }
+ }
+}
