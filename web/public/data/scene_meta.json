@@ -1,0 +1,290 @@
+{
+  "units": "metres; three.js Y-up (Blender x, z, -y)",
+  "terrain": {
+    "bounds_blender_xy": [
+      -34.0,
+      34.0,
+      -23.6,
+      44.4
+    ],
+    "resolution": 512,
+    "height_min": -0.35,
+    "height_max": 7.947348793268902,
+    "height_file": "data/terrain_height.u16",
+    "data_file": "data/terrain_data.rgba8",
+    "data_channels": {
+      "r": "grass density",
+      "g": "moonlight through canopy (1 = open)",
+      "b": "water depth 0..1 (x pond_depth)",
+      "a": "wetness"
+    },
+    "texel_layout": "row 0 = Blender y0 (three z = -y0), column 0 = x0; u = (x - x0)/(x1 - x0), v = (-z - y0)/(y1 - y0)",
+    "shore": {
+      "file": "data/terrain_shore.bin",
+      "box_blender_xy": [
+        -3.6,
+        9.2,
+        7.6,
+        15.6
+      ],
+      "vertices": 3532,
+      "triangles": 6750,
+      "layout": "float32 x,y,z (three.js) per vertex, float32 normal x,y,z per vertex, float32 moss cover per vertex, then uint16 indices (3 per triangle)",
+      "source": "blender/scripts/mf_shore.py via export_shore_web.py"
+    }
+  },
+  "water_level": 0.0,
+  "pond_depth": 0.85,
+  "camera_reference": {
+    "position": [
+      0.2,
+      0.77999997,
+      -0.0
+    ],
+    "forward": [
+      0.09142473,
+      0.07722527,
+      -0.99281305
+    ],
+    "up": [
+      -0.00708144,
+      0.99701363,
+      0.0768999
+    ],
+    "vertical_fov_deg": 44.37249608,
+    "aspect": 1.83908046
+  },
+  "moon": {
+    "direction_to_scene": [
+      0.05064,
+      -0.50637,
+      0.86083
+    ],
+    "color": [
+      0.30000001192092896,
+      0.5699999928474426,
+      1.0
+    ],
+    "strength": 1.2999999523162842
+  },
+  "pink_lights": [
+    {
+      "name": "L_Moai_Pink_Base_L",
+      "position": [
+        -0.2,
+        0.7,
+        -11.2
+      ],
+      "color": [
+        1.0,
+        0.10000000149011612,
+        0.4000000059604645
+      ],
+      "watts": 60.0
+    },
+    {
+      "name": "L_Moai_Pink_Base_R",
+      "position": [
+        2.3,
+        0.9,
+        -11.6
+      ],
+      "color": [
+        1.0,
+        0.10000000149011612,
+        0.4000000059604645
+      ],
+      "watts": 50.0
+    },
+    {
+      "name": "L_Moai_Rim_Back",
+      "position": [
+        1.79708,
+        4.21956,
+        -14.09623
+      ],
+      "color": [
+        1.0,
+        0.11999999731779099,
+        0.5
+      ],
+      "watts": 650.0
+    },
+    {
+      "name": "L_Bank_Pink_R",
+      "position": [
+        7.0,
+        1.2,
+        -12.0
+      ],
+      "color": [
+        1.0,
+        0.10000000149011612,
+        0.4000000059604645
+      ],
+      "watts": 170.0
+    },
+    {
+      "name": "L_Bank_Pink_L",
+      "position": [
+        -7.0,
+        0.8,
+        -7.0
+      ],
+      "color": [
+        1.0,
+        0.10000000149011612,
+        0.4000000059604645
+      ],
+      "watts": 130.0
+    },
+    {
+      "name": "L_Rock_Pink_BL",
+      "position": [
+        -2.053,
+        0.55,
+        -4.14189
+      ],
+      "color": [
+        1.0,
+        0.10000000149011612,
+        0.4000000059604645
+      ],
+      "watts": 22.0
+    },
+    {
+      "name": "L_Rock_Pink_BR",
+      "position": [
+        5.18471,
+        0.55,
+        -9.08939
+      ],
+      "color": [
+        1.0,
+        0.10000000149011612,
+        0.4000000059604645
+      ],
+      "watts": 50.0
+    },
+    {
+      "name": "L_Shore_Pink_C",
+      "position": [
+        0.50145,
+        0.55,
+        -10.98074
+      ],
+      "color": [
+        1.0,
+        0.10000000149011612,
+        0.4000000059604645
+      ],
+      "watts": 35.0
+    }
+  ],
+  "moai": {
+    "position": [
+      1.0,
+      0.0856,
+      -12.2
+    ],
+    "file": "models/moai_head.glb",
+    "matrix": [
+      0.8829439,
+      0.0,
+      0.4694785,
+      0.0,
+      -0.0,
+      0.9999999,
+      -0.0,
+      0.0,
+      -0.4694785,
+      -0.0,
+      0.8829439,
+      0.0,
+      1.0,
+      0.3355858,
+      -12.1999998,
+      1.0
+    ]
+  },
+  "fog": {
+    "color_near": [
+      0.02,
+      0.07,
+      0.2
+    ],
+    "color_far": [
+      0.06,
+      0.32,
+      0.85
+    ],
+    "density": 0.035
+  },
+  "grass": {
+    "root_color": [
+      0.006,
+      0.014,
+      0.014
+    ],
+    "tip_color": [
+      0.025,
+      0.065,
+      0.055
+    ],
+    "blade_height": [
+      0.16,
+      0.36
+    ],
+    "blade_width": 0.0045
+  },
+  "source": "blender/moai_forest.blend via blender/scripts/mf_export_web.py",
+  "grass_tufts": {
+    "file": "data/grass_tufts.f32",
+    "count": 16147,
+    "stride_floats": 8,
+    "fields": [
+      "x",
+      "y",
+      "z",
+      "yaw",
+      "scale",
+      "var",
+      "kind (0 mondo clump, 1 PolyHaven tuft)",
+      "ground_y"
+    ],
+    "blender_blades_per_clump": 23,
+    "blender_blade_height_m": [
+      0.16,
+      0.34
+    ],
+    "blender_blade_halfwidth_m": [
+      0.0025,
+      0.0045
+    ],
+    "blender_clump_radius_m": 0.04
+  },
+  "trees": {
+    "version": 1,
+    "file": "foliage/trees.json"
+  },
+  "scene": {
+    "file": "scene/scene.json"
+  },
+  "cinematic": {
+    "file": "cinematic/lighting.json"
+  },
+  "pbr": {
+    "file": "pbr/pbr.json",
+    "tier": "low"
+  },
+  "sky": {
+    "file": "sky/sky.json"
+  },
+  "water": {
+    "file": "water/water.json"
+  },
+  "ground_contact": {
+    "file": "scene/ground_contact.webp",
+    "reach_m": 0.8
+  }
+}
