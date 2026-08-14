@@ -1,0 +1,65 @@
+{
+  "version": 2,
+  "source": "Poly Haven qwantani_night_puresky (4k, CC0)",
+  "profile": {
+    "horizon": 0.32,
+    "band": 0.22,
+    "stars": 0.6,
+    "star_floor": 2,
+    "contrast": 0.75,
+    "ground": 0.65
+  },
+  "halo": 0.6,
+  "violet": 0.0,
+  "files": {
+    "high": "sky/sky_haze_2k.webp",
+    "low": "sky/sky_haze_2k.webp"
+  },
+  "size": [
+    2048,
+    1024
+  ],
+  "scale": 0.56464,
+  "highlight": [
+    0.85,
+    1.0
+  ],
+  "gain": 0,
+  "light": {
+    "file": "sky/sky_light_512.webp",
+    "size": [
+      512,
+      256
+    ],
+    "scale": 0.63615,
+    "level": 3
+  },
+  "stars": {
+    "file": "sky/sky_stars.bin",
+    "count": 44495,
+    "flux_log2": [
+      -8.0,
+      5.0
+    ],
+    "top_deg": 80.0,
+    "colour": {
+      "mean": [
+        0.9758,
+        1.0017,
+        1.0538
+      ],
+      "axis": [
+        -0.5463,
+        0.0782,
+        0.8339
+      ],
+      "reach": 0.3242
+    }
+  },
+  "glow_uv": [
+    0.2406,
+    0.5232
+  ],
+  "glow_elevation_deg": 4.2,
+  "yaw_shift_px": 2538
+}
