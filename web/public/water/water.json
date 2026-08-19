@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "files": {
+    "wind": "water/ripples_wind.webp",
+    "fine": "water/ripples_fine.webp"
+  },
+  "size": 512,
+  "channels": "RG = ripple slopes (dh/dx, dh/dz), decode v*2-1"
+}
