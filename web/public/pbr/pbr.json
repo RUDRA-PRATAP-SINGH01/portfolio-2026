@@ -1,0 +1,113 @@
+{
+  "version": 1,
+  "tier_sizes": {
+    "high": 1024,
+    "low": 512
+  },
+  "macro": {
+    "wood_ao_hero": {
+      "high": "pbr/wood_ao_hero_1024.ktx2",
+      "low": "pbr/wood_ao_hero_512.ktx2"
+    },
+    "wood_ao_bg": {
+      "high": "pbr/wood_ao_bg_1024.ktx2",
+      "low": "pbr/wood_ao_bg_512.ktx2"
+    },
+    "rock_macro_ao": {
+      "high": "pbr/rock_macro_ao_1024.ktx2",
+      "low": "pbr/rock_macro_ao_512.ktx2"
+    },
+    "rock_macro_normal": {
+      "high": "pbr/rock_macro_normal_1024.ktx2",
+      "low": "pbr/rock_macro_normal_512.ktx2"
+    }
+  },
+  "sets": {
+    "bark": {
+      "tile_m": [
+        1.0,
+        1.0
+      ],
+      "base": {
+        "high": "pbr/bark_base_1024.ktx2",
+        "low": "pbr/bark_base_512.ktx2"
+      },
+      "normal": {
+        "high": "pbr/bark_normal_1024.ktx2",
+        "low": "pbr/bark_normal_512.ktx2"
+      },
+      "arh": {
+        "high": "pbr/bark_arh_1024.ktx2",
+        "low": "pbr/bark_arh_512.ktx2"
+      }
+    },
+    "rock": {
+      "tile_m": [
+        1.2,
+        1.2
+      ],
+      "base": {
+        "high": "pbr/rock_base_1024.ktx2",
+        "low": "pbr/rock_base_512.ktx2"
+      },
+      "normal": {
+        "high": "pbr/rock_normal_1024.ktx2",
+        "low": "pbr/rock_normal_512.ktx2"
+      },
+      "arh": {
+        "high": "pbr/rock_arh_1024.ktx2",
+        "low": "pbr/rock_arh_512.ktx2"
+      }
+    },
+    "twig": {
+      "cells": [
+        2,
+        2
+      ],
+      "base": {
+        "high": "pbr/twig_base_1024.ktx2",
+        "low": "pbr/twig_base_512.ktx2"
+      },
+      "normal": {
+        "high": "pbr/twig_normal_1024.ktx2",
+        "low": "pbr/twig_normal_512.ktx2"
+      },
+      "arh": {
+        "high": "pbr/twig_arh_1024.ktx2",
+        "low": "pbr/twig_arh_512.ktx2"
+      }
+    },
+    "lilypad": {
+      "cells": [
+        2,
+        2
+      ],
+      "base": {
+        "high": "pbr/lilypad_base_1024.ktx2",
+        "low": "pbr/lilypad_base_512.ktx2"
+      },
+      "normal": {
+        "high": "pbr/lilypad_normal_1024.ktx2",
+        "low": "pbr/lilypad_normal_512.ktx2"
+      },
+      "arh": {
+        "high": "pbr/lilypad_arh_1024.ktx2",
+        "low": "pbr/lilypad_arh_512.ktx2"
+      }
+    },
+    "moss": {
+      "tile_m": [
+        0.7,
+        0.7
+      ],
+      "data": {
+        "high": "pbr/moss_data_1024.ktx2",
+        "low": "pbr/moss_data_512.ktx2"
+      },
+      "normal": {
+        "high": "pbr/moss_normal_1024.ktx2",
+        "low": "pbr/moss_normal_512.ktx2"
+      }
+    }
+  }
+}
