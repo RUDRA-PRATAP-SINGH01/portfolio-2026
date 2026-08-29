@@ -1,0 +1,666 @@
+{
+  "version": 3,
+  "coordinate_system": "three Y-up (Blender x,z,-y)",
+  "record_format": "byte planes of: position:u16x3 (grid origin + (n + 0.5) * step) quaternion:i16x4 scale:f16 variation:u8 species:u1+phase:u7 glow:f16 moonlight:u8 skylight:u8",
+  "levels": [
+    {
+      "file": "foliage/leaves_lod0.bin.gz",
+      "count": 211401,
+      "stride": 22,
+      "bytes": 3104481,
+      "decoded_bytes": 4650822,
+      "moon_mean": 0.203,
+      "sky_mean": 0.224
+    },
+    {
+      "file": "foliage/leaves_lod1.bin.gz",
+      "count": 40973,
+      "stride": 22,
+      "bytes": 660297,
+      "decoded_bytes": 901406,
+      "moon_mean": 0.233,
+      "sky_mean": 0.252
+    },
+    {
+      "file": "foliage/leaves_lod2.bin.gz",
+      "count": 24118,
+      "stride": 22,
+      "bytes": 391613,
+      "decoded_bytes": 530596,
+      "moon_mean": 0.217,
+      "sky_mean": 0.236
+    }
+  ],
+  "tiles": [
+    {
+      "species": 0,
+      "spray": false,
+      "bounds": [
+        -0.08908012920618057,
+        -0.0727499988079071,
+        0.08908012920618057,
+        0.09909999781847
+      ],
+      "uv": [
+        0.0,
+        0.0,
+        0.5,
+        0.5
+      ],
+      "trim": {
+        "box": [
+          0.0347,
+          0.0327,
+          0.9653,
+          0.9634
+        ],
+        "cuts": [
+          0.3284,
+          0.3303,
+          0.2717,
+          0.2698
+        ]
+      }
+    },
+    {
+      "species": 0,
+      "spray": true,
+      "bounds": [
+        -0.2,
+        -0.2,
+        0.2,
+        0.2
+      ],
+      "uv": [
+        0.0,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "trim": {
+        "box": [
+          0.1438,
+          0.2044,
+          0.8698,
+          0.9109
+        ],
+        "cuts": [
+          0.0853,
+          0.1244,
+          0.1302,
+          0.1537
+        ]
+      }
+    },
+    {
+      "species": 1,
+      "spray": false,
+      "bounds": [
+        -0.05738060587644577,
+        -0.06399999970197677,
+        0.05738060587644577,
+        0.06399999970197677
+      ],
+      "uv": [
+        0.5,
+        0.0,
+        0.5,
+        0.5
+      ],
+      "trim": {
+        "box": [
+          0.0601,
+          0.0503,
+          0.9399,
+          0.9477
+        ],
+        "cuts": [
+          0.3889,
+          0.3909,
+          0.2873,
+          0.2854
+        ]
+      }
+    },
+    {
+      "species": 1,
+      "spray": true,
+      "bounds": [
+        -0.2,
+        -0.2,
+        0.2,
+        0.2
+      ],
+      "uv": [
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "trim": {
+        "box": [
+          0.1946,
+          0.2356,
+          0.8152,
+          0.8347
+        ],
+        "cuts": [
+          0.0306,
+          0.0677,
+          0.097,
+          0.1244
+        ]
+      }
+    }
+  ],
+  "original_leaf_triangles": 20846964,
+  "wood": "foliage/wood.glb",
+  "glow_color": [
+    1,
+    0.12,
+    0.55
+  ],
+  "glow_strength": 2.2,
+  "method": "instanced leaf cards (PBR atlas, baked AO); low-poly bark tubes and alpha twig cards with tiling PBR sets and baked AO",
+  "pbr": "pbr/pbr.json",
+  "maps": {
+    "high": {
+      "color": "foliage/leaves_color_1024.ktx2",
+      "detail": "foliage/leaves_detail_1024.ktx2"
+    },
+    "low": {
+      "color": "foliage/leaves_color_512.ktx2",
+      "detail": "foliage/leaves_detail_512.ktx2"
+    }
+  },
+  "gloss": 0.594,
+  "cluster_cell": 0.65,
+  "grid": {
+    "origin": [
+      -33.15,
+      0.0,
+      -44.85
+    ],
+    "step": 0.002
+  },
+  "wood_parts": [
+    {
+      "name": "Hero_Wood_0",
+      "family": "Hero_Wood",
+      "trees": [
+        "TREE_Frame_Left",
+        "TREE_Frame_Right_Oak",
+        "TREE_MapleHost_Left",
+        "TREE_MapleHost_Right",
+        "TREE_Overhang_C",
+        "TREE_Overhang_L",
+        "TREE_Overhang_R",
+        "TREE_Overhang_T"
+      ],
+      "triangles": 19491,
+      "box": [
+        [
+          -11.025,
+          -0.755,
+          -20.325
+        ],
+        [
+          9.918,
+          14.19,
+          -4.672
+        ]
+      ]
+    },
+    {
+      "name": "BG_Wood_0",
+      "family": "BG_Wood",
+      "trees": [
+        "TREE_BG_03",
+        "TREE_BG_04",
+        "TREE_BG_05",
+        "TREE_BG_06",
+        "TREE_BG_08",
+        "TREE_BG_Island_0_0",
+        "TREE_BG_Island_1_0"
+      ],
+      "triangles": 6982,
+      "box": [
+        [
+          -6.158,
+          -0.591,
+          -43.75
+        ],
+        [
+          17.603,
+          12.835,
+          -14.235
+        ]
+      ]
+    },
+    {
+      "name": "BG_Wood_1",
+      "family": "BG_Wood",
+      "trees": [
+        "TREE_BG_10",
+        "TREE_BG_12"
+      ],
+      "triangles": 1687,
+      "box": [
+        [
+          8.089,
+          1.907,
+          -43.479
+        ],
+        [
+          24.874,
+          13.549,
+          -35.803
+        ]
+      ]
+    },
+    {
+      "name": "BG_Wood_2",
+      "family": "BG_Wood",
+      "trees": [
+        "TREE_BG_00",
+        "TREE_BG_01",
+        "TREE_BG_02",
+        "TREE_BG_07",
+        "TREE_BG_09",
+        "TREE_BG_11",
+        "TREE_BG_Island_2_0"
+      ],
+      "triangles": 6399,
+      "box": [
+        [
+          -19.949,
+          0.101,
+          -43.792
+        ],
+        [
+          -4.436,
+          12.68,
+          -17.999
+        ]
+      ]
+    },
+    {
+      "name": "Hero_Twigs_0",
+      "family": "Hero_Twigs",
+      "trees": [
+        "TREE_Frame_Left",
+        "TREE_Frame_Right_Oak",
+        "TREE_MapleHost_Left",
+        "TREE_MapleHost_Right",
+        "TREE_Overhang_C",
+        "TREE_Overhang_L",
+        "TREE_Overhang_R",
+        "TREE_Overhang_T"
+      ],
+      "triangles": 5320,
+      "box": [
+        [
+          -10.866,
+          1.82,
+          -21.057
+        ],
+        [
+          10.522,
+          14.778,
+          -4.84
+        ]
+      ]
+    },
+    {
+      "name": "BG_Twigs_0",
+      "family": "BG_Twigs",
+      "trees": [
+        "TREE_BG_03",
+        "TREE_BG_04",
+        "TREE_BG_05",
+        "TREE_BG_06",
+        "TREE_BG_08",
+        "TREE_BG_Island_0_0",
+        "TREE_BG_Island_1_0"
+      ],
+      "triangles": 2124,
+      "box": [
+        [
+          -8.706,
+          2.133,
+          -44.868
+        ],
+        [
+          18.474,
+          14.056,
+          -12.193
+        ]
+      ]
+    },
+    {
+      "name": "BG_Twigs_1",
+      "family": "BG_Twigs",
+      "trees": [
+        "TREE_BG_10",
+        "TREE_BG_12"
+      ],
+      "triangles": 384,
+      "box": [
+        [
+          6.552,
+          5.829,
+          -44.42
+        ],
+        [
+          25.361,
+          14.849,
+          -34.957
+        ]
+      ]
+    },
+    {
+      "name": "BG_Twigs_2",
+      "family": "BG_Twigs",
+      "trees": [
+        "TREE_BG_00",
+        "TREE_BG_01",
+        "TREE_BG_02",
+        "TREE_BG_07",
+        "TREE_BG_09",
+        "TREE_BG_11",
+        "TREE_BG_Island_2_0"
+      ],
+      "triangles": 1952,
+      "box": [
+        [
+          -20.971,
+          3.687,
+          -44.871
+        ],
+        [
+          -4.409,
+          13.576,
+          -17.365
+        ]
+      ]
+    },
+    {
+      "name": "Far_Wood_0",
+      "family": "Far_Wood",
+      "trees": [
+        "TREE_Far_00",
+        "TREE_Far_04",
+        "TREE_Far_05",
+        "TREE_Far_23"
+      ],
+      "triangles": 1971,
+      "box": [
+        [
+          -30.076,
+          0.893,
+          7.579
+        ],
+        [
+          -6.895,
+          14.157,
+          18.584
+        ]
+      ]
+    },
+    {
+      "name": "Far_Wood_1",
+      "family": "Far_Wood",
+      "trees": [
+        "TREE_Far_01",
+        "TREE_Far_02",
+        "TREE_Far_06",
+        "TREE_Far_07"
+      ],
+      "triangles": 2029,
+      "box": [
+        [
+          -5.055,
+          0.533,
+          5.642
+        ],
+        [
+          10.787,
+          13.578,
+          18.548
+        ]
+      ]
+    },
+    {
+      "name": "Far_Wood_2",
+      "family": "Far_Wood",
+      "trees": [
+        "TREE_Far_03",
+        "TREE_Far_08",
+        "TREE_Far_09",
+        "TREE_Far_11",
+        "TREE_Far_24"
+      ],
+      "triangles": 2535,
+      "box": [
+        [
+          11.95,
+          -0.088,
+          -8.435
+        ],
+        [
+          27.925,
+          14.105,
+          13.126
+        ]
+      ]
+    },
+    {
+      "name": "Far_Wood_3",
+      "family": "Far_Wood",
+      "trees": [
+        "TREE_Far_10",
+        "TREE_Far_12",
+        "TREE_Far_13"
+      ],
+      "triangles": 1506,
+      "box": [
+        [
+          17.751,
+          3.556,
+          -22.733
+        ],
+        [
+          28.956,
+          18.014,
+          -9.068
+        ]
+      ]
+    },
+    {
+      "name": "Far_Wood_4",
+      "family": "Far_Wood",
+      "trees": [
+        "TREE_Far_16",
+        "TREE_Far_18",
+        "TREE_Far_19",
+        "TREE_Far_22"
+      ],
+      "triangles": 2074,
+      "box": [
+        [
+          -32.517,
+          0.699,
+          -24.739
+        ],
+        [
+          -17.616,
+          13.54,
+          -8.686
+        ]
+      ]
+    },
+    {
+      "name": "Far_Wood_5",
+      "family": "Far_Wood",
+      "trees": [
+        "TREE_Far_14",
+        "TREE_Far_15",
+        "TREE_Far_17",
+        "TREE_Far_20",
+        "TREE_Far_21"
+      ],
+      "triangles": 2517,
+      "box": [
+        [
+          -31.451,
+          0.493,
+          -10.332
+        ],
+        [
+          -16.927,
+          11.274,
+          6.796
+        ]
+      ]
+    },
+    {
+      "name": "Far_Twigs_0",
+      "family": "Far_Twigs",
+      "trees": [
+        "TREE_Far_00",
+        "TREE_Far_04",
+        "TREE_Far_05",
+        "TREE_Far_23"
+      ],
+      "triangles": 768,
+      "box": [
+        [
+          -30.212,
+          2.487,
+          6.039
+        ],
+        [
+          -5.341,
+          15.106,
+          19.83
+        ]
+      ]
+    },
+    {
+      "name": "Far_Twigs_1",
+      "family": "Far_Twigs",
+      "trees": [
+        "TREE_Far_01",
+        "TREE_Far_02",
+        "TREE_Far_06",
+        "TREE_Far_07"
+      ],
+      "triangles": 768,
+      "box": [
+        [
+          -6.424,
+          4.004,
+          4.68
+        ],
+        [
+          11.986,
+          14.735,
+          19.683
+        ]
+      ]
+    },
+    {
+      "name": "Far_Twigs_2",
+      "family": "Far_Twigs",
+      "trees": [
+        "TREE_Far_03",
+        "TREE_Far_08",
+        "TREE_Far_09",
+        "TREE_Far_11",
+        "TREE_Far_24"
+      ],
+      "triangles": 960,
+      "box": [
+        [
+          11.039,
+          -2.439,
+          -10.172
+        ],
+        [
+          29.995,
+          15.31,
+          14.759
+        ]
+      ]
+    },
+    {
+      "name": "Far_Twigs_3",
+      "family": "Far_Twigs",
+      "trees": [
+        "TREE_Far_10",
+        "TREE_Far_12",
+        "TREE_Far_13"
+      ],
+      "triangles": 576,
+      "box": [
+        [
+          16.681,
+          8.038,
+          -24.252
+        ],
+        [
+          30.729,
+          19.386,
+          -7.739
+        ]
+      ]
+    },
+    {
+      "name": "Far_Twigs_4",
+      "family": "Far_Twigs",
+      "trees": [
+        "TREE_Far_16",
+        "TREE_Far_18",
+        "TREE_Far_19",
+        "TREE_Far_22"
+      ],
+      "triangles": 768,
+      "box": [
+        [
+          -33.154,
+          -1.023,
+          -26.067
+        ],
+        [
+          -16.711,
+          13.539,
+          -7.1
+        ]
+      ]
+    },
+    {
+      "name": "Far_Twigs_5",
+      "family": "Far_Twigs",
+      "trees": [
+        "TREE_Far_14",
+        "TREE_Far_15",
+        "TREE_Far_17",
+        "TREE_Far_20",
+        "TREE_Far_21"
+      ],
+      "triangles": 960,
+      "box": [
+        [
+          -32.245,
+          1.131,
+          -11.008
+        ],
+        [
+          -15.532,
+          12.263,
+          7.04
+        ]
+      ]
+    }
+  ]
+}
