@@ -1,0 +1,238 @@
+{
+  "version": 2,
+  "revision": "v015_baked",
+  "rgbmRange": 16,
+  "surfaces": {
+    "soil_base": {
+      "high": "cinematic/soil_base_high.ktx2",
+      "low": "cinematic/soil_base_low.ktx2"
+    },
+    "soil_normal": {
+      "high": "cinematic/soil_normal_512.ktx2",
+      "low": "cinematic/soil_normal_512.ktx2"
+    },
+    "soil_roughness": {
+      "high": "cinematic/soil_roughness_512.ktx2",
+      "low": "cinematic/soil_roughness_512.ktx2"
+    },
+    "ground_roughness": {
+      "high": "cinematic/ground_roughness_512.ktx2",
+      "low": "cinematic/ground_roughness_512.ktx2"
+    }
+  },
+  "environment": "cinematic/pond_environment.hdr",
+  "terrain": "cinematic/terrain_light.webp",
+  "ground": "cinematic/ground_maps_1024.ktx2",
+  "rocks": "cinematic/rocks_light.webp",
+  "wood_hero": "cinematic/wood_hero_light.webp",
+  "wood_bg": "cinematic/wood_bg_light.webp",
+  "head": "cinematic/head_light.webp",
+  "head_reach": "cinematic/head_reach_1024.ktx2",
+  "head_stone": {
+    "macro": "cinematic/head_colour_1024.webp",
+    "macro_low": "cinematic/head_colour_1024.webp",
+    "relief_map": "cinematic/head_relief_1024.webp",
+    "relief_map_low": "cinematic/head_relief_512.webp",
+    "tile": "cinematic/stone_tile_1024.webp",
+    "tile_low": "cinematic/stone_tile_512.webp",
+    "tile_m": 2.0,
+    "relief": 1.6,
+    "height_slope": 5.5,
+    "cavity": 0.9,
+    "roughness": [
+      0.8,
+      0.95
+    ],
+    "coarse_range": 0.6
+  },
+  "statue": {
+    "lights": [
+      {
+        "name": "L_Moai_Magenta_Key",
+        "position": [
+          -1.2000000476837158,
+          4.449999809265137,
+          -9.59999942779541
+        ],
+        "color": [
+          1.0,
+          0.10000000149011612,
+          0.3799999952316284
+        ],
+        "direction": [
+          0.624345600605011,
+          -0.5640303492546082,
+          -0.5404279232025146
+        ],
+        "cosHalf": 0.9135454529015278,
+        "blend": 0.05619545355276992,
+        "strength": 31.528919169199156
+      },
+      {
+        "name": "L_Moai_Rim_Back",
+        "position": [
+          1.7970805168151855,
+          4.219557285308838,
+          -14.096226692199707
+        ],
+        "color": [
+          1.0,
+          0.11999999731779099,
+          0.5
+        ],
+        "strength": 13.815045777337716
+      },
+      {
+        "name": "L_Moai_Blue_Fill_R",
+        "position": [
+          4.199999809265137,
+          3.049999952316284,
+          -10.199999809265137
+        ],
+        "color": [
+          0.18000000715255737,
+          0.4300000071525574,
+          1.0
+        ],
+        "direction": [
+          -0.9100736379623413,
+          -0.17222176492214203,
+          -0.37696895003318787
+        ],
+        "area": true,
+        "strength": 17.021639483182412
+      }
+    ]
+  },
+  "field": {
+    "dims": [
+      26,
+      6,
+      28
+    ],
+    "min": [
+      -33.333333333333336,
+      0.15,
+      -44.526315789473685
+    ],
+    "max": [
+      33.333333333333336,
+      14.0,
+      23.68421052631579
+    ],
+    "directions": [
+      [
+        1,
+        0,
+        0
+      ],
+      [
+        -1,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        -1,
+        0
+      ],
+      [
+        0,
+        0,
+        1
+      ],
+      [
+        0,
+        0,
+        -1
+      ]
+    ],
+    "files": {
+      "lamp": [
+        "cinematic/field_lamp_0.rgba16f",
+        "cinematic/field_lamp_1.rgba16f",
+        "cinematic/field_lamp_2.rgba16f",
+        "cinematic/field_lamp_3.rgba16f",
+        "cinematic/field_lamp_4.rgba16f",
+        "cinematic/field_lamp_5.rgba16f"
+      ],
+      "sky": [
+        "cinematic/field_sky_0.rgba16f",
+        "cinematic/field_sky_1.rgba16f",
+        "cinematic/field_sky_2.rgba16f",
+        "cinematic/field_sky_3.rgba16f",
+        "cinematic/field_sky_4.rgba16f",
+        "cinematic/field_sky_5.rgba16f"
+      ],
+      "moon": [
+        "cinematic/field_moon_0.rgba16f",
+        "cinematic/field_moon_1.rgba16f",
+        "cinematic/field_moon_2.rgba16f",
+        "cinematic/field_moon_3.rgba16f",
+        "cinematic/field_moon_4.rgba16f",
+        "cinematic/field_moon_5.rgba16f"
+      ]
+    }
+  },
+  "beams": [
+    {
+      "start": [
+        -4,
+        7,
+        -22
+      ],
+      "end": [
+        -10,
+        0,
+        -13
+      ],
+      "width": 1.4
+    },
+    {
+      "start": [
+        1,
+        9,
+        -25
+      ],
+      "end": [
+        -3,
+        0,
+        -16
+      ],
+      "width": 1.5
+    },
+    {
+      "start": [
+        7,
+        10,
+        -28
+      ],
+      "end": [
+        1,
+        0,
+        -19
+      ],
+      "width": 1.7
+    }
+  ],
+  "floating": {
+    "loose": [
+      "PROTO_Floating_Petal",
+      "PROTO_Hydrocharis_Leaf"
+    ],
+    "rooted": [
+      "PROTO_LilyPad_0",
+      "PROTO_LilyPad_1",
+      "PROTO_LilyPad_2",
+      "PROTO_LilyPad_3",
+      "PROTO_Nymphaea_Open",
+      "PROTO_Nymphaea_Cup",
+      "PROTO_Nymphaea_Bud"
+    ]
+  }
+}
